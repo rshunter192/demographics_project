@@ -1,0 +1,165 @@
+---
+title: "More information"
+author: "Hannah Farman, Katie Raphaelson, Ray Hunter"
+date: "Last updated on `r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+---
+
+<!--
+Comments in HTML are like this! 
+-->
+
+# SECTION NAME
+
+Write your "more information" section here.
+
+## Subsection name
+
+Write a second `more_info.html` page going more in-depth for people who want more details. In should have
+
+1. Between 2-3 more visualizations.
+1. No more than 500 words of text
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2
+)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(sf)
+library(RColorBrewer)
+library(rgdal)
+options(scipen =999)
+```
+
+```{r, echo = FALSE}
+chi_neighborhoods <- "NeighborhoodBoundaries/" %>%
+  sf::read_sf() %>% 
+  rename(Neighborhood = "pri_neigh") %>% 
+  mutate(Neighborhood = str_replace_all(Neighborhood, " ", ""))
+
+income_chicago <- read.csv("MedianIncomeDataUntidy.csv", check.names=FALSE) %>% 
+  filter(income_type == "Median household income") %>% 
+  pivot_longer(names_to = "year", 
+               values_to = "median_income", 
+               cols = -c(income_type, Neighborhood))  %>% 
+  transform(year = as.numeric(year)) %>% 
+  transform(median_income = as.numeric(as.character(gsub("[$,]", "", median_income)))) %>% 
+  mutate(Neighborhood = str_replace_all(Neighborhood, " ", "")) %>% 
+  select(Neighborhood, year, median_income) 
+
+
+
+race_chicago <- read.csv("RaceDataUntidy.csv", 
+check.names=FALSE) %>% 
+  pivot_longer(names_to = "year", 
+               values_to = "population", 
+               cols = -c(RaceEthnicity, Neighborhood)) %>%
+  mutate_if(is.factor, as.character) %>% 
+  transform(year = as.numeric(year)) %>% 
+  filter(RaceEthnicity 
+  %in% c("White", "Black or African-American",
+  "Asian", "Persons of Spanish Language*") & year >= "1950") %>%
+  mutate(Neighborhood = 
+  str_replace_all(Neighborhood, " ", "")) %>% 
+  transform(population = 
+  as.numeric(gsub(",", "", population)))
+  
+  
+race_chi_percentages <- read.csv("RaceDataPercentUntidy.csv",
+check.names=FALSE) %>% 
+  pivot_longer(names_to = "year", 
+               values_to = "population", 
+               cols = -c( RacePercent, Neighborhood ) ) %>%
+  mutate_if(is.factor, as.character) %>% 
+  transform(year = as.numeric(year)) %>%
+  filter(RacePercent 
+  %in% c("Percent Black", "Percent Hispanic", 
+  "Percent White", "Percent Asian")) %>%
+  mutate(Neighborhood = 
+  str_replace_all(Neighborhood, " ", "")) %>% 
+  transform(population = 
+  as.numeric(gsub(",", "", population))) 
+
+chi_nonwhite_income <- race_chi_percentages %>% 
+  full_join(income_chicago, by = c("year", "Neighborhood")) %>% 
+  full_join(chi_neighborhoods, by = "Neighborhood") %>% 
+  filter(year == "2017")
+
+chi_black_population <- chi_nonwhite_income %>% 
+  filter(RacePercent == "Percent Black") 
+
+chi_nonwhite_income_sf <- st_as_sf(chi_nonwhite_income)
+chi_black_population_sf <- st_as_sf(chi_black_population)
+
+City_Zhvi_AllHomes_All_cities_ <- read_csv("City_Zhvi_AllHomes_All cities .csv")
+Zhvi_CH<-City_Zhvi_AllHomes_All_cities_ %>%
+    filter(RegionID== "17426")%>%
+  pivot_longer(names_to = "year", 
+               values_to = "ZHVI", 
+               cols = - c(RegionID, RegionName, State, Metro, CountyName, SizeRank)) 
+tmp <- strsplit(Zhvi_CH$year, split="-")
+Zhvi_yearmonth <- do.call(rbind, lapply(tmp, rbind))
+Zhvi_CH_x <- cbind(Zhvi_CH, Zhvi_yearmonth)
+Zhvi_CH_new <- Zhvi_CH_x %>% 
+  rename(years = "1", months = "2") 
+Zhvi_CH_group <-Zhvi_CH_new %>%
+  group_by(years) %>%
+  summarize(mean = mean(ZHVI, na.rm = TRUE))
+Zhvi_CH_final <- Zhvi_CH_new %>%
+  inner_join(Zhvi_CH_group, by="years")
+
+Zhvi_BOS<-City_Zhvi_AllHomes_All_cities_ %>%
+    filter(RegionID== "44269")%>%
+  pivot_longer(names_to = "year", 
+               values_to = "ZHVI", 
+               cols = - c(RegionID, RegionName, State, Metro, CountyName, SizeRank)) 
+tmp <- strsplit(Zhvi_BOS$year, split="-")
+Zhvi_yearmonth <- do.call(rbind, lapply(tmp, rbind))
+Zhvi_BOS_x <- cbind(Zhvi_BOS, Zhvi_yearmonth)
+Zhvi_BOS_new <- Zhvi_BOS_x %>% 
+  rename(years = "1", months = "2")
+Zhvi_BOS_group <-Zhvi_BOS_new %>%
+  group_by(years) %>%
+  summarize(mean = mean(ZHVI, na.rm = TRUE)) 
+Zhvi_BOS_final <- Zhvi_BOS_new %>%
+  inner_join(Zhvi_BOS_group, by="years") 
+  
+```
+
+
+
+```{r, echo=FALSE}
+ggplot(data = Zhvi_CH_final, 
+       mapping = aes(x = years, y = mean)) +
+  geom_point() +
+   labs(title="ZHVI for Chicago", y= "Mean", x="Year")
+
+ggplot(data = Zhvi_BOS_final, 
+       mapping = aes(x = years, y = mean)) +
+  geom_point()  +
+   labs(title="ZHVI for Boston", y= "Mean", x="Year")
+```
+
+```{r, echo = FALSE}
+ggplot() +
+  geom_sf(data = chi_black_population_sf, aes(fill = population), size = 0.1) +
+  labs(x = "Longitude", y = "Latitude", 
+       title = "Race in Chicago in 2017", 
+       fill = "Percent Black Population") +
+  scale_fill_gradient(high = "#980043", low = "#f1eef6", guide = "colorbar")
+
+ggplot() +
+  geom_sf(data = chi_nonwhite_income_sf, aes(fill = median_income), size = 0.1) +
+  labs(x = "Longitude", y = "Latitude", 
+       title = "Median Household Income by Neighborhood", 
+       fill = "Median Household Income in Dollars") +
+  scale_fill_gradient(high = "#980043", low = "#f1eef6", guide = "colorbar") 
+```
+
