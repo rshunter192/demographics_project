@@ -1,0 +1,111 @@
+Race,Neighborhood,1950,1960,1970,1980,1990,2000,2010
+White,Allston,"15,452","13,307","13,147","12,370","11,638","11,253","12,808"
+Black/ African American,Allston,207,169,374,820,"1,599",973,"1,075"
+Hispanic,Allston,,,451,942,"2,427","2,545","2,799"
+Asian/PI,Allston,,,463,"1,374","2,587","3,397","4,510"
+Other,Allston,59,105,51,255,170,907,"1,120"
+White,Back Bay,"20,627","17,100","16,345","16,140","14,507","13,870","13,096"
+Black/ African American,Back Bay,533,837,"1,046","1,048",745,614,661
+Hispanic,Back Bay,,,395,621,652,730,943
+Asian/PI,Back Bay,,,233,389,746,"1,101","1,564"
+Other,Back Bay,68,217,98,138,55,366,358
+White,Beacon Hill,"14,163","11,570","10,048","9,939","8,430","7,904","7,832"
+Black/ African American,Beacon Hill,88,84,153,245,196,288,178
+Hispanic,Beacon Hill,,,44,194,193,295,374
+Asian/PI,Beacon Hill,,,115,188,381,442,483
+Other,Beacon Hill,25,84,45,71,24,122,156
+White,Brighton,"51,339","50,383","46,544","42,944","39,757","36,582","36,761"
+Black/ African American,Brighton,77,163,760,"1,738","3,051","2,137","2,356"
+Hispanic,Brighton,,,884,"1,969","3,986","3,791","4,641"
+Asian/PI,Brighton,,,832,"2,370","4,784","6,214","7,058"
+Other,Brighton,42,155,151,482,285,"1,849","1,869"
+White,Dorchester,"30,922","20,030","14,704","13,034","13,785","11,946","12,458"
+Black/ African American,Dorchester,323,30,76,24,85,539,764
+Hispanic,Dorchester,,,430,124,306,"1,764","1,591"
+Asian/PI,Dorchester,,,108,124,313,761,"1,344"
+Other,Dorchester,87,87,35,58,59,185,282
+White,Downtown,"5,694","3,529","2,364","4,493","4,601","6,089","9,261"
+Black/ African American,Downtown,182,72,37,321,320,432,706
+Hispanic,Downtown,,,42,125,237,451,759
+Asian/PI,Downtown,,,"1,249","3,327","3,686","4,277","4,933"
+Other,Downtown,"1,298","1,770",12,77,17,189,333
+White,East Boston,"51,077","43,738","37,945","30,839","24,977","19,078","15,051"
+Black/ African American,East Boston,53,46,326,121,702,"1,177","1,283"
+Hispanic,East Boston,,,486,942,"5,805","14,990","21,419"
+Asian/PI,East Boston,,,50,109,"1,260","1,553","1,413"
+Other,East Boston,22,25,66,167,197,"1,615","1,342"
+White,Fenway,"25,188","22,353","25,373","21,158","21,450","20,876","21,995"
+Black/ African American,Fenway,434,641,"1,218","2,435","2,630","1,720","1,659"
+Hispanic,Fenway,,,314,"1,354","2,289","2,269","2,751"
+Asian/PI,Fenway,,,600,"1,083","2,941","4,255","6,379"
+Other,Fenway,182,404,178,584,387,"1,036","1,111"
+White,Harbor Islands,"2,029","1,614",980,342,482,260,165
+Black/ African American,Harbor Islands,111,189,256,139,626,244,204
+Hispanic,Harbor Islands,,,0,22,156,120,134
+Asian/PI,Harbor Islands,,,1,3,7,5,9
+Other,Harbor Islands,4,9,4,4,11,11,23
+White,Hyde Park,"26,078","29,596","34,875","25,178","21,378","13,443","9,128"
+Black/ African American,Hyde Park,29,53,352,"4,197","7,074","12,716","15,111"
+Hispanic,Hyde Park,,,198,593,"1,522","4,155","6,507"
+Asian/PI,Hyde Park,,,97,160,343,483,535
+Other,Hyde Park,21,44,27,221,137,"1,206","1,036"
+White,Jamaica Plain,"52,445","50,397","38,443","23,503","19,882","17,541","19,061"
+Black/ African American,Jamaica Plain,271,"1,296","4,159","4,870","5,635","5,373","4,462"
+Hispanic,Jamaica Plain,,,"2,315","7,575","10,503","10,285","9,140"
+Asian/PI,Jamaica Plain,,,277,513,"1,385","1,565","1,692"
+Other,Jamaica Plain,37,137,247,460,222,"1,213","1,186"
+White,Longwood Medical Area,"2,559","2,540","2,884","2,113","1,774","2,446","3,381"
+Black/ African American,Longwood Medical Area,22,"1,140",827,735,521,506,377
+Hispanic,Longwood Medical Area,,,25,184,202,530,457
+Asian/PI,Longwood Medical Area,,,25,46,92,315,481
+Other,Longwood Medical Area,11,45,12,27,15,111,165
+White,Mattapan,"23,776","24,303","20,033","5,805","3,363","1,734","1,434"
+Black/ African American,Mattapan,43,66,"4,906","15,933","19,205","19,037","17,179"
+Hispanic,Mattapan,,,493,702,"1,094","1,798","2,722"
+Asian/PI,Mattapan,,,167,65,218,386,386
+Other,Mattapan,21,34,110,323,158,"1,344",779
+White,Mission Hill,"21,889","17,598","12,547","7,539","6,645","6,732","7,992"
+Black/ African American,Mission Hill,296,"1,272","2,660","3,362","4,072","2,867","2,680"
+Hispanic,Mission Hill,,,902,"2,302","3,640","2,474","3,216"
+Asian/PI,Mission Hill,,,362,570,"1,477","2,161","2,523"
+Other,Mission Hill,34,222,121,361,154,630,463
+White,North End,"16,014","11,847","9,600","8,206","7,666","7,594","7,888"
+Black/ African American,North End,54,11,6,91,11,30,53
+Hispanic,North End,,,502,149,210,169,308
+Asian/PI,North End,,,13,20,86,154,250
+Other,North End,19,7,13,42,9,93,109
+White,Roslindale,"28,784","29,193","31,401","26,134","22,660","17,041","13,363"
+Black/ African American,Roslindale,8,16,91,434,"1,258","4,287","5,376"
+Hispanic,Roslindale,,,73,689,"2,408","4,971","6,156"
+Asian/PI,Roslindale,,,76,155,445,643,675
+Other,Roslindale,10,36,45,188,58,"1,057",798
+White,Roxbury,"75,911","33,845","8,266","2,693","1,975","2,244","5,002"
+Black/ African American,Roxbury,"25,183","38,451","38,314","34,367","32,251","26,383","25,691"
+Hispanic,Roxbury,,,"3,695","5,182","8,131","9,979","14,175"
+Asian/PI,Roxbury,,,128,132,186,370,"1,030"
+Other,Roxbury,232,542,629,"1,209","1,478","3,539","3,213"
+White,South Boston Waterfront,"2,183","1,296",969,706,917,"1,234","2,194"
+Black/ African American,South Boston Waterfront,0,0,1,0,12,22,40
+Hispanic,South Boston Waterfront,,,0,1,19,36,129
+Asian/PI,South Boston Waterfront,,,1,0,48,75,154
+Other,South Boston Waterfront,0,3,41,6,3,34,47
+White,South Boston,"53,399","42,538","36,466","29,152","27,154","24,082","24,344"
+Black/ African American,South Boston,42,70,386,15,251,719,"1,532"
+Hispanic,South Boston,,,329,159,411,"2,199","3,216"
+Asian/PI,South Boston,,,151,142,474,"1,086","1,488"
+Other,South Boston,22,51,93,140,105,451,530
+White,South End,"38,046","20,770","10,802","10,303","12,170","13,339","16,024"
+Black/ African American,South End,"11,354","9,749","6,817","7,175","6,119","4,771","3,968"
+Hispanic,South End,,,"1,192","2,972","3,609","3,677","4,019"
+Asian/PI,South End,,,"2,912","3,291","3,741","3,565","4,762"
+Other,South End,353,835,153,359,195,774,839
+White,West End,"12,657 ","1,809 ","2,962 ","3,884 ","2,942 ","3,320 ","3,450"
+Black/ African American,West End,138 ,82 ,131 ,191 ,230 ,423 ,615
+Hispanic,West End,,,70 ,90 ,189 ,275 ,481
+Asian/PI,West End,,,25 ,57 ,204 ,486 ,746
+Other,West End,12 ,11 ,14 ,35 ,3 ,118 ,131
+White,West Roxbury,"27,051 ","29,726 ","33,941 ","30,332 ","27,968 ","24,029 ","22,302"
+Black/ African American,West Roxbury,7 ,37 ,79 ,185 ,472 ,"1,718 ","2,959"
+Hispanic,West Roxbury,,,54 ,395 ,624 ,"1,309 ","2,573"
+Asian/PI,West Roxbury,,,115 ,286 ,563 ,"1,090 ","1,976"
+Other,West Roxbury,8 ,31 ,24 ,135 ,33 ,607 ,635
