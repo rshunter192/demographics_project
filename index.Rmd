@@ -1,0 +1,82 @@
+---
+title: "Examining Demographic Changes in Chicago and Boston"
+author: "Hannah Farman, Katie Raphaelson, Ray Hunter"
+date: "Last updated on `r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+---
+
+<!--
+Comments in HTML are like this! 
+-->
+
+## White Flight
+
+Write an intro `index.html` page in blog-post style that summarizes your work. It should have
+
+1. One visualization that best summarizes your work.
+1. No more than 200 words of text
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2
+)
+library(tidyverse)
+library(readr)
+library(sf)
+library(RColorBrewer)
+options(scipen =999)
+```
+
+
+
+```{r load_data, echo = FALSE}
+
+
+race_chicago <- read.csv("RaceDataUntidy.csv", 
+check.names=FALSE) %>% 
+  pivot_longer(names_to = "year", 
+               values_to = "population", 
+               cols = -c(RaceEthnicity, Neighborhood)) %>%
+  mutate_if(is.factor, as.character) %>% 
+  transform(year = as.numeric(year)) %>% 
+  filter(RaceEthnicity 
+  %in% c("White", "Black or African-American",
+  "Asian", "Persons of Spanish Language*") & year >= "1950") %>%
+  mutate(Neighborhood = 
+  str_replace_all(Neighborhood, " ", "")) %>% 
+  transform(population = 
+  as.numeric(gsub(",", "", population)))
+
+race_boston_numerical <- read.csv(
+"BostonRaceUntidy.csv", check.names = FALSE) %>% 
+  pivot_longer(names_to = "year", 
+               values_to = "population", 
+               cols = -c( Race, Neighborhood ) ) %>% 
+  mutate_if(is.factor, as.character) %>% 
+  transform(year = as.numeric(year)) %>% 
+  transform(population = 
+  as.numeric(gsub(",", "", population))) %>% 
+  group_by(year, Race) %>% 
+  summarize(population = sum(population, na.rm = TRUE))
+
+race_chi_numerical <- race_chicago %>% 
+  group_by(year, RaceEthnicity) %>% 
+  summarize(population = sum(population, na.rm = TRUE))
+```
+
+
+```{r plots, echo=FALSE}
+
+ggplot(data = race_chi_numerical, mapping = aes(x = year, y = population, color = RaceEthnicity))+ geom_line() + 
+  labs(title = "Demographic Shifts in Chicago: 1950 to present")
+
+ggplot(data = race_boston_numerical, mapping = aes(x = year, y = population, color = Race)) + geom_line() + 
+  labs(title = "Demographic Shifts in Boston: 1950 to 2010")
+
+```
+
